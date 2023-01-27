@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import logo from "./assets/logo.svg"
 import {CreatePost} from "./pages"
+
 const App = () => {
   return (
     <BrowserRouter>

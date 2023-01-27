@@ -12,7 +12,7 @@ const CreatePost = () => {
     photo: "",
   });
   const [generatingImg, setGeneratingImg] = useState(false);
-
+  
   //? -------- setting prompt from input field
   const handleChange = (e) => {
     setForm({ ...form, prompt: e.target.value });
