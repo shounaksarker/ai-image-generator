@@ -14,10 +14,11 @@ app.get('/', async (req, res)=>{
     res.send("Hello from DALL-E");
 })
 
+const port = process.env.PORT || 8080
 const startServer = async ()=>{
 
     try {
-        app.listen(8080,()=>{console.log("Server has started on port localhost:8080")})
+        app.listen(port,()=>{console.log("Server has started on port localhost:8080")})
     } catch (error) {
         console.log(error);
     }
