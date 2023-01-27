@@ -11,7 +11,7 @@ app.use(express.json({limit: '50mb'}))
 app.use("/api/v1/dalle", dalleRoutes)
 
 app.get('/', async (req, res)=>{
-    res.send("Hello from DALL-E homepage");
+    res.send("Wrong API called");
 })
 
 const port = process.env.PORT || 8080

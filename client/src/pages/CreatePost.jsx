@@ -29,11 +29,10 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
+        await fetch('https://ai-image-generator-jqq6.onrender.com/api/v1/dalle', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "No-Allow-Origin": "http://localhost:8080",
           },
           body: JSON.stringify({ prompt: form.prompt }),
         })
