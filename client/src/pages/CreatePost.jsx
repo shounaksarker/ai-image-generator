@@ -74,7 +74,7 @@ const CreatePost = () => {
         </h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[550px]">
           Create imaginative and visually stunning images through{" "}
-          <span className="underline italic">AI Image Generator</span>
+          <span className="underline italic">AiPicGen</span>
         </p>
       </div>
 
