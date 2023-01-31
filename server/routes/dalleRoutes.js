@@ -24,13 +24,13 @@ router.route("/").post(async (req, res) => {
       size: "512x512",
       response_format: 'b64_json'
     });
-    const image = await aiResposnse.data.data[0].b64_json;
-    // console.log("🚀 ~ router.route ~ aiResposnse", image)
+    const image = aiResposnse.data.data[0].b64_json;
+    console.log("🚀 ~ router.route ~ aiResposnse")
 
     res.status(200).json({ photo: image });
   } catch (error) {
     console.log("🚀 ~ router.route ~ error occured in 37th line");
-    res.status(500).send(error?.response.data.error.message);
+    res.status(500).send(error);
   }
 });
 

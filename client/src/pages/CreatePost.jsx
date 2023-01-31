@@ -12,7 +12,7 @@ const CreatePost = () => {
     photo: "",
   });
   const [generatingImg, setGeneratingImg] = useState(false);
-  
+
   //? -------- setting prompt from input field
   const handleChange = (e) => {
     setForm({ ...form, prompt: e.target.value });
@@ -29,13 +29,16 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        await fetch('https://ai-image-generator-jqq6.onrender.com/api/v1/dalle', {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        })
+        await fetch(
+          "https://ai-image-generator-jqq6.onrender.com/api/v1/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
+          }
+        )
           .then((dat) => dat.json())
           .then((res) => {
             setForm({ ...form, photo: `data:image/jpeg;base64,${res.photo}` });
@@ -54,9 +57,9 @@ const CreatePost = () => {
   //! -------- Image generating on ENTER PRESS
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      generateImg()
+      generateImg();
     }
-  }
+  };
 
   //? -------- Toast Msg
   const launchToast = () => {
@@ -69,6 +72,9 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
+        <h1 className="font-semibold text-[#222328] text-[16px] underline underline-offset-4 text-center mb-8">
+          Text to Image
+        </h1>
         <h1 className="font-extrabold text-[#222328] text-[32px]">
           Create your own image
         </h1>
@@ -122,15 +128,15 @@ const CreatePost = () => {
 
       {/* // ---------- Buttons */}
       <div className="mt-5 flex gap-5">
-          <button
-            type="button"
-            className="text-white bg-green-700 rounded-md text-sm font-medium w-full sm:w-auto px-5 py-2.5 text-center"
-            onClick={generateImg}
-          >
-            {generatingImg ? "Generating..." : "Generate"}
-          </button>
-          {form.photo && <DownloadBtn imgUrl={form?.photo} />}
-        </div>
+        <button
+          type="button"
+          className="text-white bg-green-700 rounded-md text-sm font-medium w-full sm:w-auto px-5 py-2.5 text-center"
+          onClick={generateImg}
+        >
+          {generatingImg ? "Generating..." : "Generate"}
+        </button>
+        {form.photo && <DownloadBtn imgUrl={form?.photo} />}
+      </div>
       <Toast
         msg={`Your Image has Prepared...`}
         launchToast={launchToast}

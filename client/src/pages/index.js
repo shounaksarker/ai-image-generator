@@ -1,2 +1,4 @@
 import CreatePost from './CreatePost';
-export {  CreatePost}
+import EditImage from './EditImage';
+import Home from './Home';
+export { CreatePost, EditImage, Home}
