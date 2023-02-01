@@ -33,7 +33,7 @@ const EditImage = () => {
       const formData = new FormData();
       formData.append("file", image);
 
-      await fetch("http://localhost:8080/api/v1/imgEdit", {
+      await fetch("https://ai-image-generator-jqq6.onrender.com/api/v1/imgEdit", {
         method: "POST",
         body: formData,
       })
